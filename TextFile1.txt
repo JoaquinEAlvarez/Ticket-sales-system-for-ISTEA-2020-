@@ -1,0 +1,27 @@
+Entrada
+Atributos
+	Funcion
+	Asiento
+	Precio
+	FechaEmision (Del tipo DateTime)
+	Constructor: Recibe Funcion y Asiento. FechaEmision es siempre inicializada en DateTime.Now
+Cine
+Atributos
+	Nombre
+	Películas
+	Salas
+	Funciones
+	Entradas
+	PrecioEntrada
+	PrecioEntradaVIP
+	Constructor: Recibe como parámetros, nombre, PrecioEntrada y PrecioEntradaVip
+
+Funcionalidades:
+
+	BuscarFuncion: Recibe como parámetro la película y retorna una lista de todas las funciones que tengan al menos un asiento libre.
+	
+	Si la película parámetro es null, lanza error.
+	
+	Si no hay funciones disponibles para esta película, retorna una lista vacía.
+
+------------------------------------------
