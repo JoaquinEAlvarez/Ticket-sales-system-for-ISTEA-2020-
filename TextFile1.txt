@@ -1,27 +1,86 @@
+Objetivo
+Crear un emulador de venta de entradas de cine.
+
+Modelo
+enum EstadoAsiento
+	Libre
+	Ocupado
+	
+Persona
+	Atributos
+	
+	Nombre
+	Apellido
+	Constructor: Recibe todos los atributos como parámetro
+	Funcionalidad: N/A
+	
+Película
+	Atributos
+	
+	Título
+	Título Original
+	Director (es una persona)
+	Reparto (Relación entre personas y el nombre del personaje que interpretaron)
+	Duración (Del tipo TimeSpan)
+	Sinopsis
+	Constructor: Recibe todos los atributos como parámetro
+	Funcionalidad: N/A
+	
+Asiento
+	Atributos
+	
+	Fila
+	Columna
+	Es Vip
+	Constructor: Recibe solo fila y columna
+	Funcionalidad: N/A
+
+Sala
+	Atributos
+
+	Número
+	Asientos (Los asientos están ubicados en forma de grilla) 
+	Constructor: Recibe el número y la cantidad de filas y columnas para los asientos (creando y asignando la matriz de asientos). 
+	Funcionalidad: N/A
+
+Funcion
+	Atributos
+
+	Película
+	Sala
+	Fecha y hora (Del tipo DateTime)
+	Estados de los asientos (Si el asiento se encuentra ocupado o libre, representado como un Dictionary<Asiento, EstadoAsiento>
+	Constructor: Recibe como parámetros Película, Sala y FechaHora. Llena el diccionario de estados con los asientos de la sala asignándoles a cada uno el estado Libre.
+	Funcionalidad: 
+	IntentarOcuparAsiento:  Recibe el asiento a ocupar
+	Si el asiento es null, lanza un error .
+	Si el asiento no corresponde a la sala de esta función, lanza un error.
+	Si el asiento ya está Ocupado, retorna false
+	Si no, lo marca como ocupado y retorna true.
+
 Entrada
-Atributos
+	Atributos
+	
 	Funcion
 	Asiento
 	Precio
 	FechaEmision (Del tipo DateTime)
 	Constructor: Recibe Funcion y Asiento. FechaEmision es siempre inicializada en DateTime.Now
+
 Cine
-Atributos
+	Atributos
+
 	Nombre
-	Pel�culas
+	Películas
 	Salas
 	Funciones
 	Entradas
 	PrecioEntrada
 	PrecioEntradaVIP
-	Constructor: Recibe como par�metros, nombre, PrecioEntrada y PrecioEntradaVip
+	Constructor: Recibe como parámetros, nombre, PrecioEntrada y PrecioEntradaVip
+	Funcionalidades
+	BuscarFuncion: Recibe como parámetro la película y retorna una lista de todas las funciones que tengan al menos un asiento libre.
+	Si la película parámetro es null, lanza error.
+	Si no hay funciones disponibles para esta película, retorna una lista vacía.
 
-Funcionalidades:
 
-	BuscarFuncion: Recibe como par�metro la pel�cula y retorna una lista de todas las funciones que tengan al menos un asiento libre.
-	
-	Si la pel�cula par�metro es null, lanza error.
-	
-	Si no hay funciones disponibles para esta pel�cula, retorna una lista vac�a.
-
-------------------------------------------
